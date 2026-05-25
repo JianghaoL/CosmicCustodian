@@ -1,0 +1,16 @@
+** NOTATION **
+
+# - Wall
+@ - Player
+$ - Box
+& - Destination
+
+
+
+** LEVEL DATA EXAMPLE **
+
+#####
+#@ ##
+# $ #
+#  &#
+#####
