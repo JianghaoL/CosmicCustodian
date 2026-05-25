@@ -43,7 +43,9 @@ public class LevelLoader : MonoBehaviour
         
         ReadLevelData(_path);
         InitializeCoordToGridBlock();
-        Test();
+        
+        GameEventsManager.OnLevelDataLoaded.Invoke(_coordToGridBlock); // Invoke a global manager level event to prevent from coupling
+        // Test();
     }
 
     private void ReadLevelData(string path) // Read from a .txt file. Parse each line until EOF
