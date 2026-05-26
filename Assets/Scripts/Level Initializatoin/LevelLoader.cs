@@ -30,9 +30,6 @@ public class LevelLoader : MonoBehaviour
     private int _x; // this is vector3.x
     private int _y; // this is vector3.z
     
-    // For debug purposes
-    public GameObject prefab;
-    
     private void Awake()
     {
         _loadLevelSuccess = false;
@@ -143,25 +140,25 @@ public class LevelLoader : MonoBehaviour
         Debug.Log(s);
     }
 
-    private void Test()
-    {
-        foreach (var gb in _coordToGridBlock)
-        {
-            var coord = gb.Key;
-            var type = gb.Value.type;
-            
-            GameObject o = Instantiate(prefab);
-            o.transform.position = new Vector3(gb.Value.coord.x, 0,  gb.Value.coord.y);
-            Material mat = o.GetComponent<Renderer>().material;
-            switch (type)
-            {
-                case BlockType.Wall: mat.color = Color.white; break;
-                case BlockType.Player: mat.color = Color.blue; break;
-                case BlockType.Box: mat.color = Color.green; break;
-                case BlockType.Destination: mat.color = Color.red; break;
-            }
-            o.GetComponent<Renderer>().material = mat;
-        }
-    }
+    // private void Test()
+    // {
+    //     foreach (var gb in _coordToGridBlock)
+    //     {
+    //         var coord = gb.Key;
+    //         var type = gb.Value.type;
+    //         
+    //         GameObject o = Instantiate(prefab);
+    //         o.transform.position = new Vector3(gb.Value.coord.x, 0,  gb.Value.coord.y);
+    //         Material mat = o.GetComponent<Renderer>().material;
+    //         switch (type)
+    //         {
+    //             case BlockType.Wall: mat.color = Color.white; break;
+    //             case BlockType.Player: mat.color = Color.blue; break;
+    //             case BlockType.Box: mat.color = Color.green; break;
+    //             case BlockType.Destination: mat.color = Color.red; break;
+    //         }
+    //         o.GetComponent<Renderer>().material = mat;
+    //     }
+    // }
 #endif
 }

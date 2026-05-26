@@ -39,8 +39,7 @@ public class InputHandler : MonoBehaviour
 
     public void RequestMove(Vector2Int dir)
     {
-        Debug.Log($"Player Move in direction {dir}");
-        //TODO: Player Controller
+        GameEventsManager.OnMoveRequested.Invoke(dir);
     }
 
     public void RequestUndo()

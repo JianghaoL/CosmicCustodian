@@ -36,6 +36,10 @@ public class MapConstructor : MonoBehaviour
         GameEventsManager.OnLevelDataLoaded.RemoveListener(OnLevelDataLoaded);
     }
     
+    /// <summary>
+    /// Construct game map using data loaded from the .txt files.
+    /// </summary>
+    /// <param name="coordToGridBlock">The data read from the files</param>
     private void OnLevelDataLoaded(Dictionary<Vector2Int, GridBlock> coordToGridBlock)
     {
         _coordToGridBlock = coordToGridBlock;
@@ -46,9 +50,15 @@ public class MapConstructor : MonoBehaviour
         ConstructMap();
         CenterCamera();
         
+        // When the system finishes setting up the map, announce this message.
         GameEventsManager.OnMapConstructed.Invoke();
     }
 
+    
+    /// <summary>
+    /// Helper function to construct a map.
+    /// Creates a parent object "map" to hold all "Wall"s and "Destination".
+    /// </summary>
     private void ConstructMap()
     {
         _mapParent = new GameObject("Map");
@@ -56,15 +66,18 @@ public class MapConstructor : MonoBehaviour
         {
             var coord = gb.Key;
             var type = gb.Value.type;
-
+            
             switch (type)
             {
                 case BlockType.Wall: MakeWall(coord); break;
                 case BlockType.Player: MakePlayer(coord); break;
                 case BlockType.Box: MakeBox(coord); break;
                 case BlockType.Destination: MakeDestination(coord); break;
+                // Leave BlockType.Void as blank. There is no game object for void.
             }
             
+            // Update the scale of the map.
+            // Use the width and height to set the camera position.
             if (coord.x >  _width)
                 _width = coord.x;
             if (coord.y < _height)
@@ -89,6 +102,7 @@ public class MapConstructor : MonoBehaviour
         
         var o = Instantiate(prefab, pos, Quaternion.identity);
         o.name = "Player";
+        GameEventsManager.OnPlayerSpawned.Invoke(o.transform);
     }
 
     private void MakeBox(Vector2Int coord)
@@ -110,13 +124,20 @@ public class MapConstructor : MonoBehaviour
         o.transform.SetParent(_mapParent.transform);
     }
 
+    /// <summary>
+    /// Helper function to fetch a random game object prefab from SO list.
+    /// </summary>
+    /// <param name="data">An array of prefabs of certain type</param>
+    /// <returns>GameObject prefab</returns>
     private GameObject FetchRandomObject(MapDataSO data)
     {
         var index = Random.Range(0, data.blockSOs.Length);
         return data.blockSOs[index].blockPrefab;
     }
     
-    
+    /// <summary>
+    /// Set up camera position using the half-width and half-height
+    /// </summary>
     private void CenterCamera()
     {
         var x = (float) _width / 2;
