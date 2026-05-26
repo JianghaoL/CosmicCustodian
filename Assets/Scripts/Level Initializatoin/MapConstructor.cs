@@ -45,6 +45,8 @@ public class MapConstructor : MonoBehaviour
 
         ConstructMap();
         CenterCamera();
+        
+        GameEventsManager.OnMapConstructed.Invoke();
     }
 
     private void ConstructMap()
@@ -54,21 +56,6 @@ public class MapConstructor : MonoBehaviour
         {
             var coord = gb.Key;
             var type = gb.Value.type;
-            
-            
-            // GameObject o = Instantiate(prefab);
-            // o.name = type.ToString();
-            // o.transform.position = new Vector3(coord.x, 0, coord.y);
-            // Material mat = o.GetComponent<Renderer>().material;
-            // switch (type)
-            // {
-            //     case BlockType.Wall: mat.color = Color.white; break;
-            //     case BlockType.Player: mat.color = Color.blue; break;
-            //     case BlockType.Box: mat.color = Color.green; break;
-            //     case BlockType.Destination: mat.color = Color.red; break;
-            // }
-            // o.GetComponent<Renderer>().material = mat;
-
 
             switch (type)
             {
@@ -76,9 +63,7 @@ public class MapConstructor : MonoBehaviour
                 case BlockType.Player: MakePlayer(coord); break;
                 case BlockType.Box: MakeBox(coord); break;
                 case BlockType.Destination: MakeDestination(coord); break;
-                default: break;
             }
-            
             
             if (coord.x >  _width)
                 _width = coord.x;
