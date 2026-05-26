@@ -321,13 +321,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4b1fa9a548b4ae0a641d51b3a4a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapConstructor
-  walls: {fileID: 0}
-  players: {fileID: 0}
-  boxes: {fileID: 0}
-  destinations: {fileID: 0}
+  walls: {fileID: 11400000, guid: 131e3ae3f042344a3b00d3fa830f8f24, type: 2}
+  players: {fileID: 11400000, guid: dda2c042684e84f679070c79360aad6c, type: 2}
+  boxes: {fileID: 11400000, guid: c242612b4509a45be89cd6e0f82e7de3, type: 2}
+  destinations: {fileID: 11400000, guid: c9af2ceb8f17f4e339487f94f27d6ef1, type: 2}
   mainCamera: {fileID: 1351917121}
   yOffset: 10
-  prefab: {fileID: 9134901564784772473, guid: 980ce828af458441f855c1f5c2eb2d40, type: 3}
 --- !u!4 &1149114300
 Transform:
   m_ObjectHideFlags: 0

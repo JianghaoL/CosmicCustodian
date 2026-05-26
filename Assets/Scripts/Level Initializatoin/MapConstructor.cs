@@ -20,9 +20,11 @@ public class MapConstructor : MonoBehaviour
 
     private int _width; // Max width of the map
     private int _height; // Max height of the map
+
+    private GameObject _mapParent;
     
     // For debug purposes
-    public GameObject prefab;
+    // public GameObject prefab;
     
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class MapConstructor : MonoBehaviour
 
     private void ConstructMap()
     {
+        _mapParent = new GameObject("Map");
         foreach (var gb in _coordToGridBlock)
         {
             var coord = gb.Key;
@@ -86,22 +89,46 @@ public class MapConstructor : MonoBehaviour
 
     private void MakeWall(Vector2Int coord)
     {
+        var prefab = FetchRandomObject(walls);
+        var pos = new Vector3(coord.x, 0f, coord.y);
         
+        var o = Instantiate(prefab, pos, Quaternion.identity);
+        o.name = "Wall";
+        o.transform.SetParent(_mapParent.transform);
     }
 
     private void MakePlayer(Vector2Int coord)
     {
+        var prefab = FetchRandomObject(players);
+        var pos = new Vector3(coord.x, 0.5f, coord.y);
         
+        var o = Instantiate(prefab, pos, Quaternion.identity);
+        o.name = "Player";
     }
 
     private void MakeBox(Vector2Int coord)
     {
+        var prefab = FetchRandomObject(boxes);
+        var pos = new Vector3(coord.x, 0f, coord.y);
         
+        var o = Instantiate(prefab, pos, Quaternion.identity);
+        o.name = "Box";
     }
 
     private void MakeDestination(Vector2Int coord)
     {
+        var prefab = FetchRandomObject(destinations);
+        var pos = new Vector3(coord.x, 0f, coord.y);
         
+        var o = Instantiate(prefab, pos, Quaternion.identity);
+        o.name = "Destination";
+        o.transform.SetParent(_mapParent.transform);
+    }
+
+    private GameObject FetchRandomObject(MapDataSO data)
+    {
+        var index = Random.Range(0, data.blockSOs.Length);
+        return data.blockSOs[index].blockPrefab;
     }
     
     
