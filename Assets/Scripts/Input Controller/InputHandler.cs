@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private PlayerInput playerInput;
@@ -11,7 +12,7 @@ public class InputHandler : MonoBehaviour
         if (!context.performed) return;
         
         var v = context.ReadValue<Vector2>();
-        var dir = Vector2ToCoord(v);
+        var dir = Vector2IntExtention.Vector2ToCoord(v);
 
         if (dir == Vector2Int.zero) return;
         RequestMove(dir);
@@ -51,7 +52,7 @@ public class InputHandler : MonoBehaviour
     public void RequestRestart()
     {
         Debug.Log("Restart level");
-        //TODO: Player restart level
+        GameEventsManager.OnRestartRequested.Invoke();
     }
 
     public void RequestPause()
@@ -76,17 +77,5 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         RefreshControlSchemeLabel();
-    }
-
-
-    private static Vector2Int Vector2ToCoord(Vector2 v)
-    {
-        if (Mathf.Abs(v.x) > Mathf.Abs(v.y))
-            return v.x > 0 ? Vector2Int.right : Vector2Int.left;
-
-        if (Mathf.Abs(v.y) > 0.1f)
-            return v.y > 0 ? Vector2Int.up : Vector2Int.down;
-
-        return Vector2Int.zero;
     }
 }

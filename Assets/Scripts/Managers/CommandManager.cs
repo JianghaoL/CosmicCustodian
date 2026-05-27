@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class CommandManager : MonoBehaviour
+public class CommandManager : MonoBehaviour, IInitializable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void InitializeOnAwake()
     {
-        
+        GameEventsManager.OnRestartRequested.AddListener(OnRestartRequested);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDestroy()
     {
-        
+        GameEventsManager.OnRestartRequested.RemoveListener(OnRestartRequested);
+    }
+
+    private void OnRestartRequested()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

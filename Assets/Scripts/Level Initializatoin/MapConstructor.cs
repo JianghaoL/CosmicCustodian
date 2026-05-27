@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapConstructor : MonoBehaviour
+public class MapConstructor : MonoBehaviour, IInitializable
 {
     [Header("Map")] 
     [SerializeField] private MapDataSO walls;
@@ -23,13 +23,12 @@ public class MapConstructor : MonoBehaviour
 
     private GameObject _mapParent;
     
-    // For debug purposes
-    // public GameObject prefab;
-    
-    private void Awake()
+
+    public void InitializeOnAwake()
     {
         GameEventsManager.OnLevelDataLoaded.AddListener(OnLevelDataLoaded);
     }
+
 
     private void OnDestroy()
     {
@@ -112,6 +111,7 @@ public class MapConstructor : MonoBehaviour
         
         var o = Instantiate(prefab, pos, Quaternion.identity);
         o.name = "Box";
+        GameEventsManager.OnBoxSpawned.Invoke(o.transform);
     }
 
     private void MakeDestination(Vector2Int coord)

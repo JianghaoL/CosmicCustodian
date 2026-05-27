@@ -4,14 +4,13 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-public class LevelLoader : MonoBehaviour
+public class LevelLoader : MonoBehaviour, IInitializable
 {
     // File path strings
     private const string LEVEL_PREFIX = "LevelData/level_";
     private const string FILE_POSTFIX = ".txt";
     
-    [Tooltip("Level Number" )]
-    [SerializeField] private int levelNumber;
+    private int _levelNumber;
     
     private bool _loadLevelSuccess;
 
@@ -29,12 +28,12 @@ public class LevelLoader : MonoBehaviour
     // y goes negative
     private int _x; // this is vector3.x
     private int _y; // this is vector3.z
-    
-    private void Awake()
+
+    public void InitializeOnAwake()
     {
         _loadLevelSuccess = false;
-        
-        _levelDataToLoad = LEVEL_PREFIX + levelNumber.ToString() + FILE_POSTFIX;
+        _levelNumber = GameDataManager.Instance.GetConfig().levelNumber;
+        _levelDataToLoad = LEVEL_PREFIX + _levelNumber + FILE_POSTFIX;
         _path = Path.Combine(Application.streamingAssetsPath, _levelDataToLoad);
         
         _allGridBlocks = new List<GridBlock>();
@@ -44,14 +43,15 @@ public class LevelLoader : MonoBehaviour
         
         ReadLevelData(_path);
         InitializeCoordToGridBlock();
-        
-        // Test();
     }
 
-    private void Start()
+
+    public void InitializeOnStart()
     {
         if (_loadLevelSuccess)  GameEventsManager.OnLevelDataLoaded.Invoke(_coordToGridBlock); // Invoke a global manager level event to prevent from coupling
     }
+
+    
 
     private void ReadLevelData(string path) // Read from a .txt file. Parse each line until EOF
     {

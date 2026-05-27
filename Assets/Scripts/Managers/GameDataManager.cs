@@ -1,12 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDataManager : MonoBehaviour
+public class GameDataManager : MonoBehaviour, IInitializable
 {
+    public static GameDataManager Instance;
+    
     private static Dictionary<Vector2Int, GridBlock> _gridBlocks;
+    
+    [SerializeField] private GameConfig config;
 
-    private void Awake()
+    public void InitializeOnAwake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        
         GameEventsManager.OnLevelDataLoaded.AddListener(OnLevelDataLoaded);
         GameEventsManager.OnGridBlockUpdate.AddListener(UpdateGridBlock);
     }
@@ -30,6 +39,11 @@ public class GameDataManager : MonoBehaviour
     public static GridBlock GetGridBlock(Vector2Int coord)
     {
         return _gridBlocks[coord];
+    }
+
+    public GameConfig GetConfig()
+    {
+        return config;
     }
 
     private void UpdateGridBlock(Vector2Int coord, BlockType newBlockType)

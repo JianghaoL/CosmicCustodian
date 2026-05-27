@@ -31,5 +31,41 @@ public static class GameEventsManager
     /// </summary>
     public static readonly UnityEvent<Transform> OnPlayerSpawned = new UnityEvent<Transform>();
     
+    /// <summary>
+    /// This event is invoked when the box object is spawned.
+    /// Use this to get the transform of the box object.
+    /// </summary>
+    public static readonly UnityEvent<Transform> OnBoxSpawned = new UnityEvent<Transform>();
+    
+    /// <summary>
+    /// When box move is requested, this event is invoked.
+    /// It passes a Vector2Int which can be used to validate
+    /// the desired grid to move to.
+    /// </summary>
+    public static readonly UnityEvent<Vector2Int> OnBoxMoveRequested = new UnityEvent<Vector2Int>();
+    
+    /// <summary>
+    /// Every time the box moves it invokes this event, which
+    /// tells other scripts to check if a win/lose condition
+    /// is reached.
+    /// </summary>
+    public static readonly UnityEvent<Vector2Int> OnWinCheckRequested = new UnityEvent<Vector2Int>();
+    
+    /// <summary>
+    /// Invoked when player wins (box reaches destination)
+    /// </summary>
+    public static readonly UnityEvent OnGameWin = new UnityEvent();
+    
+    /// <summary>
+    /// Invoked when player loses (impossible to retrieve the box)
+    /// </summary>
+    public static readonly UnityEvent OnGameLose = new UnityEvent();
+    
+    /// <summary>
+    /// Invoked when player / box makes a move. This tells the scripts
+    /// to update the grid type.
+    /// </summary>
     public static readonly UnityEvent<Vector2Int, BlockType> OnGridBlockUpdate = new UnityEvent<Vector2Int, BlockType>();
+    
+    public static readonly UnityEvent OnRestartRequested = new UnityEvent();
 }

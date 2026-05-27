@@ -2,15 +2,18 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-public class PlayerMovementManager : MonoBehaviour
+[RequireComponent(typeof(BoxMovementManager))]
+public class PlayerMovementManager : MonoBehaviour, IInitializable
 {
-    [SerializeField] private float moveDuration = 0.5f;
+    private BoxMovementManager _boxMovementManager;
     
     private Transform _playerTransform;
     private bool _moveLock;
     
-    private void Awake()
+    public void InitializeOnAwake()
     {
+        _boxMovementManager = GetComponent<BoxMovementManager>();
+        
         GameEventsManager.OnMoveRequested.AddListener(RequestMove);
         GameEventsManager.OnPlayerSpawned.AddListener(SetPlayerTransform);
     }
@@ -21,7 +24,7 @@ public class PlayerMovementManager : MonoBehaviour
         GameEventsManager.OnPlayerSpawned.RemoveListener(SetPlayerTransform);
     }
 
-    private void Start()
+    public void InitializeOnStart()
     {
         _moveLock = false;
     }
@@ -37,11 +40,23 @@ public class PlayerMovementManager : MonoBehaviour
         StartCoroutine(LockTimer()); // Lock player's movement temporarily (for the duration of the movement)
         
         // Create a coord struct using the current player position
+        
+        // var playerCoord = new Vector2Int(Mathf.RoundToInt(_playerTransform.position.x), Mathf.RoundToInt(_playerTransform.position.z));
+        // var requestedCoord = playerCoord + dir;
+        
         var playerCoord = new Vector2Int(Mathf.RoundToInt(_playerTransform.position.x), Mathf.RoundToInt(_playerTransform.position.z));
-        var requestedCoord = playerCoord + dir;
+        var requestedCoord = Vector2IntExtention.GetNextMoveFromDirection(dir, _playerTransform);
         
         // Guard clause. Early return if requested coord not valid.
         if (!ValidateMoveCoord(requestedCoord)) return;
+        
+        if (GameDataManager.GetGridBlock(requestedCoord).type is BlockType.Box)
+        {
+            if (!_boxMovementManager.ValidateBoxMoveCoord(dir)) return;
+            
+            // Invoke box move request if the box is in front of the player
+            GameEventsManager.OnBoxMoveRequested.Invoke(dir);
+        }
         
         var toGo = new Vector3(requestedCoord.x, 0.5f, requestedCoord.y);
         
@@ -49,13 +64,14 @@ public class PlayerMovementManager : MonoBehaviour
         GameEventsManager.OnGridBlockUpdate.Invoke(playerCoord, BlockType.Void);
         GameEventsManager.OnGridBlockUpdate.Invoke(requestedCoord, BlockType.Player);
         
-        _playerTransform.DOMove(toGo, moveDuration);
+        // Move player
+        _playerTransform.DOMove(toGo, GameDataManager.Instance.GetConfig().moveDuration);
     }
 
     private IEnumerator LockTimer()
     {
         _moveLock = true;
-        yield return new WaitForSeconds(moveDuration + 0.01f);
+        yield return new WaitForSeconds(GameDataManager.Instance.GetConfig().moveDuration + 0.01f);
         _moveLock = false;
     }
 
@@ -69,7 +85,7 @@ public class PlayerMovementManager : MonoBehaviour
         var o = GameDataManager.GetGridBlock(coord);
         var type = o.type;
 
-        return type == BlockType.Box || type == BlockType.Destination || type == BlockType.Void;
+        return type is BlockType.Destination or BlockType.Void or BlockType.Box;
     }
 
     private void SetPlayerTransform(Transform playerTransform)
