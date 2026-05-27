@@ -16,12 +16,16 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
         
         GameEventsManager.OnMoveRequested.AddListener(RequestMove);
         GameEventsManager.OnPlayerSpawned.AddListener(SetPlayerTransform);
+        
+        GameEventsManager.OnUndoPlayer.AddListener(MovePlayer);
     }
 
     private void OnDestroy()
     {
         GameEventsManager.OnMoveRequested.RemoveListener(RequestMove);
         GameEventsManager.OnPlayerSpawned.RemoveListener(SetPlayerTransform);
+        
+        GameEventsManager.OnUndoPlayer.RemoveListener(MovePlayer);
     }
 
     public void InitializeOnStart()
@@ -29,6 +33,8 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
         _moveLock = false;
     }
 
+    
+    
     /// <summary>
     /// Request a move action. Automatically validates destination.
     /// </summary>
@@ -60,11 +66,20 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
         
         var toGo = new Vector3(requestedCoord.x, 0.5f, requestedCoord.y);
         
-        // Invoke the update block event. Old grid => void, new grid => player.
-        GameEventsManager.OnGridBlockUpdate.Invoke(playerCoord, BlockType.Void);
-        GameEventsManager.OnGridBlockUpdate.Invoke(requestedCoord, BlockType.Player);
+        GameEventsManager.RecordPlayerPreviousCoord.Invoke(playerCoord);
+        GameEventsManager.RecordPlayerCurrentCoord.Invoke(requestedCoord);
         
+        MovePlayer(toGo, playerCoord);
+    }
+
+    private void MovePlayer(Vector3 toGo, Vector2Int currentPlayerCoord)
+    {
         // Move player
+        
+        // Invoke the update block event. Old grid => void, new grid => player.
+        GameEventsManager.OnGridBlockUpdate.Invoke(currentPlayerCoord, BlockType.Void);
+        GameEventsManager.OnGridBlockUpdate.Invoke(Vector2IntExtention.Vector3ToCoord(toGo), BlockType.Player);
+        
         _playerTransform.DOMove(toGo, GameDataManager.Instance.GetConfig().moveDuration);
     }
 
@@ -75,6 +90,8 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
         _moveLock = false;
     }
 
+    
+    
     /// <summary>
     /// Validates a coord and see if it is a legal tile to move to.
     /// </summary>
@@ -91,5 +108,6 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
     private void SetPlayerTransform(Transform playerTransform)
     {
         _playerTransform = playerTransform;
+        GameEventsManager.RecordPlayerCurrentCoord.Invoke(Vector2IntExtention.Vector3ToCoord(_playerTransform.position));
     }
 }

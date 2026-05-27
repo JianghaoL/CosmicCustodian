@@ -68,4 +68,18 @@ public static class GameEventsManager
     public static readonly UnityEvent<Vector2Int, BlockType> OnGridBlockUpdate = new UnityEvent<Vector2Int, BlockType>();
     
     public static readonly UnityEvent OnRestartRequested = new UnityEvent();
+    
+    public static readonly UnityEvent OnUndoRequested = new UnityEvent();
+    
+    public static readonly UnityEvent<Vector2Int> RecordBoxPreviousCoord = new UnityEvent<Vector2Int>();
+    
+    public static readonly UnityEvent<Vector2Int> RecordBoxCurrentCoord = new UnityEvent<Vector2Int>();
+    
+    public static readonly UnityEvent<Vector2Int> RecordPlayerPreviousCoord = new UnityEvent<Vector2Int>();
+    
+    public static readonly UnityEvent<Vector2Int> RecordPlayerCurrentCoord = new UnityEvent<Vector2Int>();
+    
+    public static readonly UnityEvent<Vector3, Vector2Int> OnUndoPlayer =  new UnityEvent<Vector3, Vector2Int>();
+    
+    public static readonly UnityEvent<Vector3, Vector2Int> OnUndoBox =  new UnityEvent<Vector3, Vector2Int>();
 }

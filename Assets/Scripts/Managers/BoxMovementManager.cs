@@ -9,12 +9,16 @@ public class BoxMovementManager : MonoBehaviour, IInitializable
     {
         GameEventsManager.OnBoxSpawned.AddListener(SetBoxTransform);
         GameEventsManager.OnBoxMoveRequested.AddListener(RequestMove);
+        
+        GameEventsManager.OnUndoBox.AddListener(MoveBox);
     }
 
     private void OnDestroy()
     {
         GameEventsManager.OnBoxSpawned.RemoveListener(SetBoxTransform);
         GameEventsManager.OnBoxMoveRequested.RemoveListener(RequestMove);
+        
+        GameEventsManager.OnUndoBox.RemoveListener(MoveBox);
     }
     
     public bool ValidateBoxMoveCoord(Vector2Int dir)
@@ -32,11 +36,22 @@ public class BoxMovementManager : MonoBehaviour, IInitializable
         var requestedCoord = Vector2IntExtention.GetNextMoveFromDirection(dir, _boxTransform);
         var toGo = new Vector3(requestedCoord.x, 0.5f, requestedCoord.y);
         
+        var currentCoord = Vector2IntExtention.Vector3ToCoord(_boxTransform.position);
+        GameEventsManager.RecordBoxPreviousCoord.Invoke(currentCoord);
+        GameEventsManager.RecordBoxCurrentCoord.Invoke(requestedCoord);
+        
         GameEventsManager.OnWinCheckRequested.Invoke(requestedCoord);
-        GameEventsManager.OnGridBlockUpdate.Invoke(requestedCoord, BlockType.Box);
+        
+        MoveBox(toGo, Vector2Int.zero);
+    }
+
+    private void MoveBox(Vector3 toGo, Vector2Int previous)
+    {
+        GameEventsManager.OnGridBlockUpdate.Invoke(Vector2IntExtention.Vector3ToCoord(toGo), BlockType.Box);
+        
+        if (previous != Vector2Int.zero) GameEventsManager.OnGridBlockUpdate.Invoke(previous, BlockType.Void);
         
         _boxTransform.DOMove(toGo, GameDataManager.Instance.GetConfig().moveDuration);
-        
     }
 
     private void SetBoxTransform(Transform t)

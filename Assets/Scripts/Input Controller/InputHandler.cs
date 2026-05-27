@@ -46,7 +46,7 @@ public class InputHandler : MonoBehaviour
     public void RequestUndo()
     {
         Debug.Log("Undo action");
-        //TODO: Player undo action
+        GameEventsManager.OnUndoRequested.Invoke();
     }
 
     public void RequestRestart()

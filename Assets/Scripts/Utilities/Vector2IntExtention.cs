@@ -18,6 +18,16 @@ public static class Vector2IntExtention
         var toGo = currentCoord + dir;
         return toGo;
     }
+
+    public static Vector2Int Vector3ToCoord(Vector3 v)
+    {
+        return new Vector2Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.z));
+    }
+
+    public static Vector3 CoordToVector3(Vector2Int v, float xOffset = 0f, float yOffset = 0f, float zOffset = 0f)
+    {
+        return new Vector3(v.x + xOffset, yOffset, v.y + zOffset);
+    }
     
     public static Vector2Int Vector2ToCoord(Vector2 v)
     {

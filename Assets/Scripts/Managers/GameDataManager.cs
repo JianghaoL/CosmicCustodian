@@ -48,6 +48,8 @@ public class GameDataManager : MonoBehaviour, IInitializable
 
     private void UpdateGridBlock(Vector2Int coord, BlockType newBlockType)
     {
+        if (_gridBlocks[coord].type == BlockType.Destination) return;
+        
         var gridBlock = new GridBlock(coord.x, coord.y, newBlockType);
         _gridBlocks[coord] = gridBlock;
     }
