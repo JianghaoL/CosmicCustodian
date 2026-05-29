@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapDataSO
   blockSOs:
   - {fileID: 11400000, guid: ee9e22dc0550949b98c178e33bc1854a, type: 2}
+  - {fileID: 11400000, guid: 93948ed8f65e54aa295a805c2490b607, type: 2}
+  - {fileID: 11400000, guid: 65b0a30bc1d214cb387f5599550d1dbb, type: 2}

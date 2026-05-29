@@ -1,0 +1,809 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &718839123075745816
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 3772348160229659157, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_b (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27300072
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.60412216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a5253a133866d742945e7106b3cf9e5, type: 3}
+--- !u!4 &3956436844500172983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 718839123075745816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1052719052501670709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2649994
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09112215
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882086150351442031, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_c
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f74fd0c183f3647419f8db8ffbe935e6, type: 3}
+--- !u!4 &714416906457108960 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1052719052501670709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1719236831323202030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0029993057
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09112215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162044674367307916, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_e
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e8e6756f77093f41b3e5842bf98e469, type: 3}
+--- !u!4 &7184995608453037016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+    type: 3}
+  m_PrefabInstance: {fileID: 1719236831323202030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2132549111069428459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 3772348160229659157, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_b
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27300072
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09112215
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a5253a133866d742945e7106b3cf9e5, type: 3}
+--- !u!4 &2488683102155063876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4544626832722757807, guid: 4a5253a133866d742945e7106b3cf9e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2132549111069428459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3824527280768148789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.38499928
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65112215
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0009999871
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 882086150351442031, guid: f74fd0c183f3647419f8db8ffbe935e6,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_c (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f74fd0c183f3647419f8db8ffbe935e6, type: 3}
+--- !u!4 &3631431058793492448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 537648003625585365, guid: f74fd0c183f3647419f8db8ffbe935e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3824527280768148789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3832759419011900411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09112215
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765712390193072441, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_d
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62a063df1c7341045a3bf41d358e2481, type: 3}
+--- !u!4 &6178437899193823352 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+    type: 3}
+  m_PrefabInstance: {fileID: 3832759419011900411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7101802363895506092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.59012216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162044674367307916, guid: 4e8e6756f77093f41b3e5842bf98e469,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_e (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e8e6756f77093f41b3e5842bf98e469, type: 3}
+--- !u!4 &1649271999972343450 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8389590079392979510, guid: 4e8e6756f77093f41b3e5842bf98e469,
+    type: 3}
+  m_PrefabInstance: {fileID: 7101802363895506092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7564127354999477367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.041999817
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.61312217
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765712390193072441, guid: 62a063df1c7341045a3bf41d358e2481,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_d (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62a063df1c7341045a3bf41d358e2481, type: 3}
+--- !u!4 &610140073789327348 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6957651214779454339, guid: 62a063df1c7341045a3bf41d358e2481,
+    type: 3}
+  m_PrefabInstance: {fileID: 7564127354999477367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7701947089546041015
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9180888409434261582}
+    m_Modifications:
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.38800144
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09112215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850337943970475587, guid: 56821547d0fdf1141ba76c256bce0052,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_books_set_a
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56821547d0fdf1141ba76c256bce0052, type: 3}
+--- !u!4 &962363472592495182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7474234205980931321, guid: 56821547d0fdf1141ba76c256bce0052,
+    type: 3}
+  m_PrefabInstance: {fileID: 7701947089546041015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8710990963153694629
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_shelf_floor_2slot_Book
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7184995608453037016}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1649271999972343450}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6178437899193823352}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 610140073789327348}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 714416906457108960}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3631431058793492448}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2488683102155063876}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3956436844500172983}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 962363472592495182}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2e38a2a342302b4da5e1a75e439f638,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4701691282521436006}
+  m_SourcePrefab: {fileID: 100100000, guid: d2e38a2a342302b4da5e1a75e439f638, type: 3}
+--- !u!1 &8368464299318104820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d2e38a2a342302b4da5e1a75e439f638,
+    type: 3}
+  m_PrefabInstance: {fileID: 8710990963153694629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4701691282521436006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368464299318104820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0318196, y: 1.1548489, z: 0.45297408}
+  m_Center: {x: 0, y: 0.57742447, z: 0}
+--- !u!4 &9180888409434261582 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e38a2a342302b4da5e1a75e439f638,
+    type: 3}
+  m_PrefabInstance: {fileID: 8710990963153694629}
+  m_PrefabAsset: {fileID: 0}

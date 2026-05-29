@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
   levelNumber: 1
-  moveDuration: 0.5
+  cameraOffset: {x: 0, y: 10, z: -6}
+  cameraRotation: {x: 60, y: 0, z: 0}
+  cameraRotationDuration: 1.7
+  startDelayMin: 0.3
+  startDelayMax: 1.5
+  riseDuration: 1.5
+  moveDuration: 0.8
+  turnDuration: 0.1
+  easeType: 1

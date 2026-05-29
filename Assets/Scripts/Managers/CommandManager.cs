@@ -50,7 +50,6 @@ public class CommandManager : MonoBehaviour, IInitializable
     private void RefreshUndo(Vector2Int dir)
     {
         _hasUndone = false;
-        Debug.Log(_isPlayerOnlyMove);
     }
 
     private void RecordPlayerPreviousCoord(Vector2Int previousCoord)

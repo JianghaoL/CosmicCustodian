@@ -5,8 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxMovementManager))]
 public class PlayerMovementManager : MonoBehaviour, IInitializable
 {
-    private BoxMovementManager _boxMovementManager;
+    [SerializeField] private GridBlockSO player;
     
+    private BoxMovementManager _boxMovementManager;
     private Transform _playerTransform;
     private bool _moveLock;
     
@@ -47,9 +48,6 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
         
         // Create a coord struct using the current player position
         
-        // var playerCoord = new Vector2Int(Mathf.RoundToInt(_playerTransform.position.x), Mathf.RoundToInt(_playerTransform.position.z));
-        // var requestedCoord = playerCoord + dir;
-        
         var playerCoord = new Vector2Int(Mathf.RoundToInt(_playerTransform.position.x), Mathf.RoundToInt(_playerTransform.position.z));
         var requestedCoord = Vector2IntExtention.GetNextMoveFromDirection(dir, _playerTransform);
         
@@ -64,10 +62,11 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
             GameEventsManager.OnBoxMoveRequested.Invoke(dir);
         }
         
-        var toGo = new Vector3(requestedCoord.x, 0.5f, requestedCoord.y);
+        var toGo = new Vector3(requestedCoord.x, _playerTransform.position.y, requestedCoord.y);
         
         GameEventsManager.RecordPlayerPreviousCoord.Invoke(playerCoord);
         GameEventsManager.RecordPlayerCurrentCoord.Invoke(requestedCoord);
+        GameEventsManager.OnPlayerMoving.Invoke(dir);
         
         MovePlayer(toGo, playerCoord);
     }
@@ -79,14 +78,17 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
         // Invoke the update block event. Old grid => void, new grid => player.
         GameEventsManager.OnGridBlockUpdate.Invoke(currentPlayerCoord, BlockType.Void);
         GameEventsManager.OnGridBlockUpdate.Invoke(Vector2IntExtention.Vector3ToCoord(toGo), BlockType.Player);
-        
-        _playerTransform.DOMove(toGo, GameDataManager.Instance.GetConfig().moveDuration);
+
+        var pos = toGo;
+        pos.y = player.yOffset;
+        _playerTransform.DOMove(pos, GameDataManager.Instance.GetConfig().moveDuration).SetEase(GameDataManager.Instance.GetConfig().easeType);
     }
 
     private IEnumerator LockTimer()
     {
         _moveLock = true;
         yield return new WaitForSeconds(GameDataManager.Instance.GetConfig().moveDuration + 0.01f);
+        GameEventsManager.OnMoveCompleted.Invoke();
         _moveLock = false;
     }
 

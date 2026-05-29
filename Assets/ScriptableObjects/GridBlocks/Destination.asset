@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d536ab9d4d474298256e0119ff2d4, type: 3}
   m_Name: Destination
   m_EditorClassIdentifier: Assembly-CSharp::GridBlockSO
-  blockPrefab: {fileID: 9129456551188358126, guid: ab9857d13139f47a9a2c419e99ae3647, type: 3}
+  blockPrefab: {fileID: 4763194494085484146, guid: 6d5e8c39dde31cf4bbbdaf24d1981b9b, type: 3}
+  yOffset: -1.3
+  rotation: {x: 0, y: 0, z: 0}
+  scale: 0.85

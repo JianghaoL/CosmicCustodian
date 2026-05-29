@@ -26,6 +26,16 @@ public static class GameEventsManager
     public static readonly UnityEvent<Vector2Int> OnMoveRequested = new UnityEvent<Vector2Int>();
     
     /// <summary>
+    /// Invoked when player starts moving.
+    /// </summary>
+    public static readonly UnityEvent<Vector2Int> OnPlayerMoving = new UnityEvent<Vector2Int>();
+    
+    /// <summary>
+    /// Invoked when current move action is completed. Used to change animation states.
+    /// </summary>
+    public static readonly UnityEvent OnMoveCompleted = new UnityEvent();
+    
+    /// <summary>
     /// This event is invoked when the player object is spawned.
     /// Use this to get the transform of the player object.
     /// </summary>

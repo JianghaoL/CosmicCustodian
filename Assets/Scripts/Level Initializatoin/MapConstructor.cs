@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class MapConstructor : MonoBehaviour, IInitializable
@@ -8,6 +10,12 @@ public class MapConstructor : MonoBehaviour, IInitializable
     [SerializeField] private MapDataSO players;
     [SerializeField] private MapDataSO boxes;
     [SerializeField] private MapDataSO destinations;
+
+    [Header("Map Cont.")] 
+    [SerializeField] private GridBlockSO platform;
+
+    [SerializeField] private GridBlockSO support;
+    [SerializeField] private int supportLayers = 3;
     
     [Space(10)]
     [Header("Camera Settings")]
@@ -50,7 +58,13 @@ public class MapConstructor : MonoBehaviour, IInitializable
         CenterCamera();
         
         // When the system finishes setting up the map, announce this message.
-        GameEventsManager.OnMapConstructed.Invoke();
+        StartCoroutine(WaitForAnimation());
+        
+        IEnumerator WaitForAnimation()
+        {
+            yield return new WaitForSecondsRealtime(GameDataManager.Instance.GetConfig().startDelayMax + GameDataManager.Instance.GetConfig().riseDuration);
+            GameEventsManager.OnMapConstructed.Invoke();
+        }
     }
 
     
@@ -65,15 +79,18 @@ public class MapConstructor : MonoBehaviour, IInitializable
         {
             var coord = gb.Key;
             var type = gb.Value.type;
-            
+
+            Transform t = _mapParent.transform;
             switch (type)
             {
-                case BlockType.Wall: MakeWall(coord); break;
+                case BlockType.Wall: t = MakeWall(coord); break;
                 case BlockType.Player: MakePlayer(coord); break;
                 case BlockType.Box: MakeBox(coord); break;
-                case BlockType.Destination: MakeDestination(coord); break;
+                case BlockType.Destination: t = MakeDestination(coord); break;
                 // Leave BlockType.Void as blank. There is no game object for void.
             }
+            
+            if (type is not BlockType.Destination) MakePlatform(coord, t);
             
             // Update the scale of the map.
             // Use the width and height to set the camera position.
@@ -82,46 +99,125 @@ public class MapConstructor : MonoBehaviour, IInitializable
             if (coord.y < _height)
                 _height = coord.y;
         }
+        
+        ConstructSupport(_width, _height, supportLayers);
     }
 
-    private void MakeWall(Vector2Int coord)
+    private void ConstructSupport(int width, int height, int layers)
     {
-        var prefab = FetchRandomObject(walls);
-        var pos = new Vector3(coord.x, 0f, coord.y);
+        for (int i = 1; i <= layers; i++)
+        {
+            Transform t;
+            t = MakeSupport(new Vector2Int(width, height), i);
+            t.GetComponent<RocketParticle>().SetShouldPlay(true);
+            
+            t = MakeSupport(new Vector2Int(0, height), i);
+            t.GetComponent<RocketParticle>().SetShouldPlay(true);
+            
+            MakeSupport(new Vector2Int(width, 0), i);
+            MakeSupport(new Vector2Int(0, 0), i);
+        }
+    }
+
+    private Transform MakeSupport(Vector2Int coord, int layers)
+    {
+        var data = support;
+        var prefab = data.blockPrefab;
+        var pos = new Vector3(coord.x, data.yOffset * layers, coord.y);
+        
+        var o = Instantiate(prefab, pos, Quaternion.identity);
+        o.name = "Support";
+        o.transform.rotation = Quaternion.Euler(data.rotation);
+        o.transform.localScale *= data.scale;
+        StartCoroutine(RiseRoutine(o.transform, pos));
+        return o.transform;
+    }
+
+    private Transform MakeWall(Vector2Int coord)
+    {
+        var data = FetchRandomObject(walls);
+        var prefab = data.blockPrefab;
+        var pos = new Vector3(coord.x, data.yOffset, coord.y);
         
         var o = Instantiate(prefab, pos, Quaternion.identity);
         o.name = "Wall";
+        o.transform.rotation = Quaternion.Euler(data.rotation);
+        o.transform.localScale *= data.scale;
+        StartCoroutine(RiseRoutine(o.transform, pos));
         o.transform.SetParent(_mapParent.transform);
+        return o.transform;
     }
 
-    private void MakePlayer(Vector2Int coord)
+    private Transform MakePlayer(Vector2Int coord)
     {
-        var prefab = FetchRandomObject(players);
-        var pos = new Vector3(coord.x, 0.5f, coord.y);
+        var data = FetchRandomObject(players);
+        var prefab = data.blockPrefab;
+        var pos = new Vector3(coord.x, data.yOffset, coord.y);
         
         var o = Instantiate(prefab, pos, Quaternion.identity);
         o.name = "Player";
+        o.transform.rotation = Quaternion.Euler(data.rotation);
+        o.transform.localScale *= data.scale;
         GameEventsManager.OnPlayerSpawned.Invoke(o.transform);
+        StartCoroutine(RiseRoutine(o.transform, pos, true));
+        return o.transform;
     }
 
-    private void MakeBox(Vector2Int coord)
+    private Transform MakeBox(Vector2Int coord)
     {
-        var prefab = FetchRandomObject(boxes);
-        var pos = new Vector3(coord.x, 0f, coord.y);
+        var data = FetchRandomObject(boxes);
+        var prefab = data.blockPrefab;
+        var pos = new Vector3(coord.x, data.yOffset, coord.y);
         
         var o = Instantiate(prefab, pos, Quaternion.identity);
         o.name = "Box";
+        o.transform.rotation = Quaternion.Euler(data.rotation);
+        o.transform.localScale *= data.scale;
+        StartCoroutine(RiseRoutine(o.transform, pos, true));
         GameEventsManager.OnBoxSpawned.Invoke(o.transform);
+        return o.transform;
     }
 
-    private void MakeDestination(Vector2Int coord)
+    private Transform MakeDestination(Vector2Int coord)
     {
-        var prefab = FetchRandomObject(destinations);
-        var pos = new Vector3(coord.x, 0f, coord.y);
+        var data = FetchRandomObject(destinations);
+        var prefab = data.blockPrefab;
+        var pos = new Vector3(coord.x, data.yOffset, coord.y);
         
         var o = Instantiate(prefab, pos, Quaternion.identity);
         o.name = "Destination";
+        o.transform.rotation = Quaternion.Euler(data.rotation);
+        o.transform.localScale *= data.scale;
+        StartCoroutine(RiseRoutine(o.transform, pos));
         o.transform.SetParent(_mapParent.transform);
+        return o.transform;
+    }
+
+    private void MakePlatform(Vector2Int coord, Transform parent)
+    {
+        var data = platform;
+        var prefab = data.blockPrefab;
+        var pos = new Vector3(coord.x, data.yOffset, coord.y);
+        
+        var o = Instantiate(prefab, pos, Quaternion.identity);
+        o.name = "Platform";
+        o.transform.rotation = Quaternion.Euler(data.rotation);
+        o.transform.localScale *= data.scale;
+        StartCoroutine(RiseRoutine(o.transform, pos));
+    }
+
+    private IEnumerator RiseRoutine(Transform t, Vector3 position, bool fromAbove = false)
+    {
+        var y = fromAbove ? 50f : -200f;
+        t.position = new Vector3(position.x, y, t.position.z);
+        
+        var startDelay = fromAbove ? 
+            GameDataManager.Instance.GetConfig().startDelayMin
+            : 
+            Random.Range(GameDataManager.Instance.GetConfig().startDelayMin, GameDataManager.Instance.GetConfig().startDelayMax);
+        
+        yield return new WaitForSecondsRealtime(GameDataManager.Instance.GetConfig().cameraRotationDuration - startDelay);
+        t.DOMoveY(position.y, GameDataManager.Instance.GetConfig().riseDuration);
     }
 
     /// <summary>
@@ -129,10 +225,10 @@ public class MapConstructor : MonoBehaviour, IInitializable
     /// </summary>
     /// <param name="data">An array of prefabs of certain type</param>
     /// <returns>GameObject prefab</returns>
-    private GameObject FetchRandomObject(MapDataSO data)
+    private GridBlockSO FetchRandomObject(MapDataSO data)
     {
         var index = Random.Range(0, data.blockSOs.Length);
-        return data.blockSOs[index].blockPrefab;
+        return data.blockSOs[index];
     }
     
     /// <summary>
@@ -142,7 +238,13 @@ public class MapConstructor : MonoBehaviour, IInitializable
     {
         var x = (float) _width / 2;
         var z = (float) _height / 2;
+
+        var offset = GameDataManager.Instance.GetConfig().cameraOffset;
+        var rotation = GameDataManager.Instance.GetConfig().cameraRotation;
         
-        mainCamera.transform.position = new Vector3(x, yOffset, z);
+        mainCamera.transform.rotation = Quaternion.Euler(Vector3.zero);
+        
+        mainCamera.transform.position = new Vector3(x + offset.x, yOffset, z + offset.z);
+        mainCamera.transform.DORotateQuaternion(Quaternion.Euler(rotation), GameDataManager.Instance.GetConfig().cameraRotationDuration);
     }
 }

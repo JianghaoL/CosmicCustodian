@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5815866479841440162
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      propertyPath: m_Name
+      value: Cosmic_retro_mesa_crate_openable_Large
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3259858966625671022}
+    - targetCorrespondingSourceObject: {fileID: -8425791688272816082, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8702930871731847944}
+  m_SourcePrefab: {fileID: 100100000, guid: 31be50dcef39f5e4fb23c9fc4495c33a, type: 3}
+--- !u!1 &6604397625192196492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8425791688272816082, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5815866479841440162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8702930871731847944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604397625192196492}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.58154887, y: 0.1523929, z: 0.5790096}
+  m_Center: {x: 0, y: -0.023892056, z: 0.28950486}
+--- !u!1 &6662919990691351795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 31be50dcef39f5e4fb23c9fc4495c33a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5815866479841440162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3259858966625671022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6662919990691351795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.61346936, z: 1}
+  m_Center: {x: 0, y: 0.30673468, z: 0.00000010430813}

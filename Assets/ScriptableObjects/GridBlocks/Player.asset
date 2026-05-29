@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d536ab9d4d474298256e0119ff2d4, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::GridBlockSO
-  blockPrefab: {fileID: 6839157805118203262, guid: bc41caffe02024a91b74bd31bdb00a3c, type: 3}
+  blockPrefab: {fileID: 8911519984254419884, guid: c6c98cbdf28b14bc28c5cca259e6620f, type: 3}
+  yOffset: -0.5
+  scale: 1

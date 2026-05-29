@@ -1,8 +1,10 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
 public class BoxMovementManager : MonoBehaviour, IInitializable
 {
+    [SerializeField] private GridBlockSO box;
     private Transform _boxTransform;
 
     public void InitializeOnAwake()
@@ -34,13 +36,19 @@ public class BoxMovementManager : MonoBehaviour, IInitializable
     private void RequestMove(Vector2Int dir)
     {
         var requestedCoord = Vector2IntExtention.GetNextMoveFromDirection(dir, _boxTransform);
-        var toGo = new Vector3(requestedCoord.x, 0.5f, requestedCoord.y);
+        var toGo = new Vector3(requestedCoord.x, _boxTransform.position.y, requestedCoord.y);
         
         var currentCoord = Vector2IntExtention.Vector3ToCoord(_boxTransform.position);
         GameEventsManager.RecordBoxPreviousCoord.Invoke(currentCoord);
         GameEventsManager.RecordBoxCurrentCoord.Invoke(requestedCoord);
-        
-        GameEventsManager.OnWinCheckRequested.Invoke(requestedCoord);
+
+        StartCoroutine(CheckWinAfterMove());
+
+        IEnumerator CheckWinAfterMove()
+        {
+            yield return new WaitForSecondsRealtime(GameDataManager.Instance.GetConfig().moveDuration);
+            GameEventsManager.OnWinCheckRequested.Invoke(requestedCoord);
+        }
         
         MoveBox(toGo, Vector2Int.zero);
     }
@@ -51,7 +59,9 @@ public class BoxMovementManager : MonoBehaviour, IInitializable
         
         if (previous != Vector2Int.zero) GameEventsManager.OnGridBlockUpdate.Invoke(previous, BlockType.Void);
         
-        _boxTransform.DOMove(toGo, GameDataManager.Instance.GetConfig().moveDuration);
+        var pos = toGo;
+        pos.y = box.yOffset;
+        _boxTransform.DOMove(pos, GameDataManager.Instance.GetConfig().moveDuration).SetEase(GameDataManager.Instance.GetConfig().easeType);
     }
 
     private void SetBoxTransform(Transform t)

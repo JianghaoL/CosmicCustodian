@@ -14,19 +14,19 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.45882353, g: 0.5372549, b: 0.6431373, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.7
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0.41960785, g: 0.46191266, b: 0.627451, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 85d841382c6964413a53d017ae884886, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 536407872}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134da6bfb20a44188a4405435b295ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementManager
+  player: {fileID: 11400000, guid: 67ab1f27654104b66a7e5abcc7d0d013, type: 2}
 --- !u!4 &2663108
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8805d60b94a2e44f081a35ab04514222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxMovementManager
+  box: {fileID: 11400000, guid: 8a83d20045e7345d38020195333065d0, type: 2}
 --- !u!1 &516551081
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +239,9 @@ MonoBehaviour:
   players: {fileID: 11400000, guid: dda2c042684e84f679070c79360aad6c, type: 2}
   boxes: {fileID: 11400000, guid: c242612b4509a45be89cd6e0f82e7de3, type: 2}
   destinations: {fileID: 11400000, guid: c9af2ceb8f17f4e339487f94f27d6ef1, type: 2}
+  platform: {fileID: 11400000, guid: 2368ff889f3b74dedb88cef71771433c, type: 2}
+  support: {fileID: 11400000, guid: 3ccf5afba42b3410fa6923d6450c253b, type: 2}
+  supportLayers: 1
   mainCamera: {fileID: 1351917121}
   yOffset: 10
 --- !u!1 &536407871
@@ -267,7 +272,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.9730728, g: 0.8392157, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
