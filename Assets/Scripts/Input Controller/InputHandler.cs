@@ -40,12 +40,14 @@ public class InputHandler : MonoBehaviour
 
     public void RequestMove(Vector2Int dir)
     {
+        UIManager.Instance.SetPromptText("Oh hey you are moving this way! You are right!");
         GameEventsManager.OnMoveRequested.Invoke(dir);
     }
 
     public void RequestUndo()
     {
         Debug.Log("Undo action");
+        UIManager.Instance.SetPromptText("Right, right. You just un-did your move. That's impressive.");
         GameEventsManager.OnUndoRequested.Invoke();
     }
 
@@ -58,6 +60,7 @@ public class InputHandler : MonoBehaviour
     public void RequestPause()
     {
         Debug.Log("Pause Game");
+        UIManager.Instance.SetPromptText("Okay well... You just paused the game. How are you going to resume it?");
         //TODO: Pause game 
     }
 

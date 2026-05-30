@@ -32,9 +32,8 @@ public class InitializationManager : MonoBehaviour
                 Debug.LogError($"Initialization entry {i} failed to initialize.");
                 continue;
             }
-            
-            IInitializable initializable = target as IInitializable;
-            if (initializable == null)
+
+            if (target is not IInitializable initializable)
             {
                 Debug.LogError($"Initialization entry {i} (Script: {initializationEntries[i].script}) does not implement IInitializable.");
                 continue;
