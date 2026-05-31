@@ -6,6 +6,11 @@ public class GameConfig : ScriptableObject
 {
     [Header("Level")] 
     public int levelNumber = 1;
+
+    [Header("Game Logistics")] 
+    public float onWinWaitDelay = 3f;
+    public int levelToLoadNumber = 1;
+    private static readonly string LevelToLoadPrefix = "Level ";
     
     [Header("Camera")]
     public Vector3 cameraOffset = Vector3.zero;
@@ -23,4 +28,9 @@ public class GameConfig : ScriptableObject
     public float moveDuration = 0.5f;
     public float turnDuration = 0.1f;
     public Ease easeType = Ease.Linear;
+
+    public string GetLevelToLoad()
+    {
+        return LevelToLoadPrefix + levelToLoadNumber;
+    }
 }

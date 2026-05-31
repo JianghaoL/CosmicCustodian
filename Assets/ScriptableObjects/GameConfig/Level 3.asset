@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d007a6eef90942a7a1706295d4a3bf5, type: 3}
-  m_Name: Level 2
+  m_Name: Level 3
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
-  levelNumber: 2
+  levelNumber: 3
   onWinWaitDelay: 5
-  levelToLoadNumber: 3
+  levelToLoadNumber: 1
   cameraOffset: {x: 0, y: 10, z: -6}
   cameraRotation: {x: 60, y: 0, z: 0}
   cameraRotationDuration: 1.7

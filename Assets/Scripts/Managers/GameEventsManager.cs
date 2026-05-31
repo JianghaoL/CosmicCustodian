@@ -77,19 +77,55 @@ public static class GameEventsManager
     /// </summary>
     public static readonly UnityEvent<Vector2Int, BlockType> OnGridBlockUpdate = new UnityEvent<Vector2Int, BlockType>();
     
+    /// <summary>
+    /// Invoked when restart action is requested
+    /// </summary>
     public static readonly UnityEvent OnRestartRequested = new UnityEvent();
     
+    /// <summary>
+    /// Invoked when undo action is requested
+    /// </summary>
     public static readonly UnityEvent OnUndoRequested = new UnityEvent();
     
+    /// <summary>
+    /// It carries the previous coord of the box.
+    /// Used to update box undo actions.
+    /// </summary>
     public static readonly UnityEvent<Vector2Int> RecordBoxPreviousCoord = new UnityEvent<Vector2Int>();
     
+    /// <summary>
+    /// It carries the current coord of the box.
+    /// Used to update box undo actions.
+    /// </summary>
     public static readonly UnityEvent<Vector2Int> RecordBoxCurrentCoord = new UnityEvent<Vector2Int>();
     
+    /// <summary>
+    /// It carries the previous coord of the player.
+    /// Used to update player undo actions.
+    /// </summary>
     public static readonly UnityEvent<Vector2Int> RecordPlayerPreviousCoord = new UnityEvent<Vector2Int>();
     
+    /// <summary>
+    /// It carries the current coord of the player.
+    /// Used to update player undo actions.
+    /// </summary>
     public static readonly UnityEvent<Vector2Int> RecordPlayerCurrentCoord = new UnityEvent<Vector2Int>();
     
+    /// <summary>
+    /// Invoked when player action is undone.
+    /// </summary>
     public static readonly UnityEvent<Vector3, Vector2Int> OnUndoPlayer =  new UnityEvent<Vector3, Vector2Int>();
-    
+   
+    /// <summary>
+    /// Invoked when box movement is undone.
+    /// </summary>
     public static readonly UnityEvent<Vector3, Vector2Int> OnUndoBox =  new UnityEvent<Vector3, Vector2Int>();
+    
+    public static readonly UnityEvent<bool> OnTutorialLoaded = new UnityEvent<bool>();
+    
+    public static readonly UnityEvent<TutorialState> OnMapConstructedTutorial = new UnityEvent<TutorialState>();
+    public static readonly UnityEvent<TutorialState> OnMoveTutorial =  new UnityEvent<TutorialState>();
+    public static readonly UnityEvent<TutorialState> OnUndoTutorial =  new UnityEvent<TutorialState>();
+    public static readonly UnityEvent<TutorialState> OnGameLoseTutorial = new UnityEvent<TutorialState>();
+    public static readonly UnityEvent<TutorialState> OnGameWinTutorial =  new UnityEvent<TutorialState>();
 }

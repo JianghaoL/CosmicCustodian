@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
   levelNumber: 1
+  onWinWaitDelay: 5
+  levelToLoadNumber: 2
   cameraOffset: {x: 0, y: 10, z: -6}
   cameraRotation: {x: 60, y: 0, z: 0}
   cameraRotationDuration: 1.7

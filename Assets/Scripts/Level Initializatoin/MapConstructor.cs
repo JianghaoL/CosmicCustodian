@@ -64,6 +64,7 @@ public class MapConstructor : MonoBehaviour, IInitializable
         {
             yield return new WaitForSecondsRealtime(GameDataManager.Instance.GetConfig().startDelayMax + GameDataManager.Instance.GetConfig().riseDuration);
             GameEventsManager.OnMapConstructed.Invoke();
+            GameEventsManager.OnMapConstructedTutorial.Invoke(TutorialState.MapConstructed);
         }
     }
 

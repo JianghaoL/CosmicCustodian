@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e6136716afa4990aff54df82671483, type: 3}
+  m_Name: OnUndo
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialSO
+  order: 3
+  mobileTutorialText: 'Keep in mind that you could only undo 1 action at a time.
+
+
+    Now
+    try move your box to the destination.'
+  desktopTutorialText: 'Keep in mind that you could only undo 1 action at a time.
+
+
+    Now
+    try move your box to the destination.'
+  specialEffectPrefab: {fileID: 7964920518972077404, guid: a942fbdc134234191924924b2ddca6a6, type: 3}
+  specialEffectCoord: {x: 3, y: -3}
+  yOffset: -0.5

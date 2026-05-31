@@ -27,6 +27,7 @@ public class WinLoseManager : MonoBehaviour, IInitializable
             _winLock = true;
             Debug.Log("Win!");
             GameEventsManager.OnGameWin.Invoke();
+            GameEventsManager.OnGameWinTutorial.Invoke(TutorialState.GameWin);
         }
     }
     
@@ -74,8 +75,11 @@ public class WinLoseManager : MonoBehaviour, IInitializable
             
             if (lose) break;
         }
+
+        if (!lose) return;
         
-        if (lose) Debug.Log("Lose!");
-        if (lose) GameEventsManager.OnGameLose.Invoke();
+        Debug.Log("Lose!");
+        GameEventsManager.OnGameLose.Invoke();
+        GameEventsManager.OnGameLoseTutorial.Invoke(TutorialState.GameLose);
     }
 }

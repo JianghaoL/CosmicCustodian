@@ -12,6 +12,7 @@ public class CharacterAnimation : MonoBehaviour
     private Animator _animator;
     private Transform _transform;
     private bool _isWithBox;
+    private bool _isTutorial;
     
     private void Awake()
     {
@@ -22,6 +23,8 @@ public class CharacterAnimation : MonoBehaviour
         GameEventsManager.OnMoveCompleted.AddListener(OnMoveCompleted);
         GameEventsManager.OnBoxMoveRequested.AddListener(SetIfWithBox);
         
+        GameEventsManager.OnTutorialLoaded.AddListener(OnTutorial);
+        
         GameEventsManager.OnGameWin.AddListener(OnGameWin);
         GameEventsManager.OnGameLose.AddListener(OnGameLose);
     }
@@ -29,6 +32,7 @@ public class CharacterAnimation : MonoBehaviour
     private void Start()
     {
         _transform.rotation = new Quaternion(0f, 90f, 0f, 0f);
+        _isTutorial = false;
     }
 
     private void OnDestroy()
@@ -36,6 +40,8 @@ public class CharacterAnimation : MonoBehaviour
         GameEventsManager.OnPlayerMoving.RemoveListener(OnMove);
         GameEventsManager.OnMoveCompleted.RemoveListener(OnMoveCompleted);
         GameEventsManager.OnBoxMoveRequested.RemoveListener(SetIfWithBox);
+        
+        GameEventsManager.OnTutorialLoaded.RemoveListener(OnTutorial);
         
         GameEventsManager.OnGameWin.RemoveListener(OnGameWin);
         GameEventsManager.OnGameLose.RemoveListener(OnGameLose);
@@ -77,6 +83,14 @@ public class CharacterAnimation : MonoBehaviour
 
     private void OnGameLose()
     {
+        Debug.Log($"Is tutorial {_isTutorial}, Game lose animation");
+        if (_isTutorial) return;
+        
         _animator.SetTrigger(Lose);
+    }
+    
+    private void OnTutorial(bool isTutorial)
+    {
+        _isTutorial = isTutorial;
     }
 }

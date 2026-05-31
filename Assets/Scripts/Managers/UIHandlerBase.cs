@@ -55,7 +55,7 @@ public class UIHandlerBase : MonoBehaviour
             promptText.text,
             promptText.rectTransform.rect.width,
             Mathf.Infinity
-        ).y;
+        ).y + bottomPadding;
         
         //var width = promptBackgroundRect.sizeDelta.x;
         
