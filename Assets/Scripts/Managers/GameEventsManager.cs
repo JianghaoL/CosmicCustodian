@@ -13,10 +13,22 @@ public static class GameEventsManager
     public static readonly UnityEvent<Dictionary<Vector2Int, GridBlock>> OnLevelDataLoaded = new UnityEvent<Dictionary<Vector2Int, GridBlock>>();
     
     /// <summary>
+    /// This event tells the game system that the camera is already centered.
+    /// </summary>
+    public static readonly UnityEvent OnCameraCentered = new UnityEvent();
+    
+    /// <summary>
+    /// This event marks when UI buttons are clicked.
+    /// </summary>
+    public static readonly UnityEvent OnUIButtonClicked = new UnityEvent();
+    
+    /// <summary>
     /// This event marks that the map construction is completed.
     /// Upper level managers can subscribe to this event to manipulate game state.
     /// </summary>
     public static readonly UnityEvent OnMapConstructed = new UnityEvent();
+    
+    public static readonly UnityEvent OnPlatformAssemble = new UnityEvent();
     
     /// <summary>
     /// This event is invoked when player requests a move action.
@@ -24,6 +36,8 @@ public static class GameEventsManager
     /// (unit = 1)
     /// </summary>
     public static readonly UnityEvent<Vector2Int> OnMoveRequested = new UnityEvent<Vector2Int>();
+    
+    public static readonly UnityEvent MoveRequested = new UnityEvent();
     
     /// <summary>
     /// Invoked when player starts moving.
@@ -61,6 +75,8 @@ public static class GameEventsManager
     /// </summary>
     public static readonly UnityEvent<Vector2Int> OnWinCheckRequested = new UnityEvent<Vector2Int>();
     
+    public static readonly UnityEvent OnBoxArriveDestination = new UnityEvent();
+    
     /// <summary>
     /// Invoked when player wins (box reaches destination)
     /// </summary>
@@ -86,6 +102,16 @@ public static class GameEventsManager
     /// Invoked when undo action is requested
     /// </summary>
     public static readonly UnityEvent OnUndoRequested = new UnityEvent();
+    
+    /// <summary>
+    /// Invoked when game is paused
+    /// </summary>
+    public static readonly UnityEvent OnPauseRequested = new UnityEvent();
+    
+    /// <summary>
+    /// Invoked when game is resumed
+    /// </summary>
+    public static readonly UnityEvent OnResumeRequested = new UnityEvent();
     
     /// <summary>
     /// It carries the previous coord of the box.
@@ -121,6 +147,9 @@ public static class GameEventsManager
     /// </summary>
     public static readonly UnityEvent<Vector3, Vector2Int> OnUndoBox =  new UnityEvent<Vector3, Vector2Int>();
     
+    /// <summary>
+    /// This carries a bool indicating whether the current level is tutorial level.
+    /// </summary>
     public static readonly UnityEvent<bool> OnTutorialLoaded = new UnityEvent<bool>();
     
     public static readonly UnityEvent<TutorialState> OnMapConstructedTutorial = new UnityEvent<TutorialState>();
@@ -128,4 +157,9 @@ public static class GameEventsManager
     public static readonly UnityEvent<TutorialState> OnUndoTutorial =  new UnityEvent<TutorialState>();
     public static readonly UnityEvent<TutorialState> OnGameLoseTutorial = new UnityEvent<TutorialState>();
     public static readonly UnityEvent<TutorialState> OnGameWinTutorial =  new UnityEvent<TutorialState>();
+    
+    public static readonly UnityEvent OnShowTutorial =  new UnityEvent();
+    
+    public static readonly UnityEvent OnGameStart = new UnityEvent();
+    public static readonly UnityEvent OnGameQuit = new UnityEvent();
 }

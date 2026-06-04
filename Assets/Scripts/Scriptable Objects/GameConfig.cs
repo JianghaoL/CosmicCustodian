@@ -8,19 +8,25 @@ public class GameConfig : ScriptableObject
     public int levelNumber = 1;
 
     [Header("Game Logistics")] 
-    public float onWinWaitDelay = 3f;
+    public float onWinDelay = 2f;
+    public float onWinLoadDelay = 3f;
     public int levelToLoadNumber = 1;
+    public bool overrideLevelLoadNumber = false;
+    public string levelToLoad;
     private static readonly string LevelToLoadPrefix = "Level ";
     
     [Header("Camera")]
+    public float fadeInDuration = 0.5f;
     public Vector3 cameraOffset = Vector3.zero;
     public Vector3 cameraRotation = Vector3.zero;
     public float cameraRotationDuration = 1.5f;
+    [Space(5)]
+    public Vector3 onGameWinCameraPosition = Vector3.zero;
+    public float onGameWinCamMoveDuration = 3f;
 
     [Header("Map Animation")] 
     public float startDelayMin = 0.3f;
     public float startDelayMax = 1.5f;
-
     public float riseDuration = 1f;
     
     [Space(10)]
@@ -31,6 +37,6 @@ public class GameConfig : ScriptableObject
 
     public string GetLevelToLoad()
     {
-        return LevelToLoadPrefix + levelToLoadNumber;
+        return overrideLevelLoadNumber ? levelToLoad : LevelToLoadPrefix + levelToLoadNumber;
     }
 }

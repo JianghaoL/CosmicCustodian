@@ -67,6 +67,7 @@ public class PlayerMovementManager : MonoBehaviour, IInitializable
         GameEventsManager.RecordPlayerPreviousCoord.Invoke(playerCoord);
         GameEventsManager.RecordPlayerCurrentCoord.Invoke(requestedCoord);
         GameEventsManager.OnPlayerMoving.Invoke(dir);
+        GameEventsManager.MoveRequested.Invoke();
         
         MovePlayer(toGo, playerCoord);
     }

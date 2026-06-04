@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,8 +27,16 @@ public class WinLoseManager : MonoBehaviour, IInitializable
         {
             _winLock = true;
             Debug.Log("Win!");
-            GameEventsManager.OnGameWin.Invoke();
-            GameEventsManager.OnGameWinTutorial.Invoke(TutorialState.GameWin);
+
+            GameEventsManager.OnBoxArriveDestination.Invoke();
+            StartCoroutine(WaitForDelay());
+
+            IEnumerator WaitForDelay()
+            {
+                yield return new WaitForSecondsRealtime(GameDataManager.Instance.GetConfig().onWinDelay);
+                GameEventsManager.OnGameWin.Invoke();
+                GameEventsManager.OnGameWinTutorial.Invoke(TutorialState.GameWin);
+            }
         }
     }
     

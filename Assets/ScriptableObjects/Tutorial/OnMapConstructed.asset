@@ -15,3 +15,7 @@ MonoBehaviour:
   order: 0
   mobileTutorialText: Use the buttons at the bottom to move.
   desktopTutorialText: Use WASD or Arrow Keys to move.
+  specialEffectPrefab: {fileID: 0}
+  specialEffectCoord: {x: 0, y: 0}
+  yOffset: 0
+  highLightSprite: {fileID: 21300000, guid: 56d84991286850f428b4e7df0cca7380, type: 3}

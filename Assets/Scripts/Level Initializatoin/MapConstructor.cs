@@ -102,6 +102,14 @@ public class MapConstructor : MonoBehaviour, IInitializable
         }
         
         ConstructSupport(_width, _height, supportLayers);
+        
+        StartCoroutine(WaitForDelay());
+
+        IEnumerator WaitForDelay()
+        {
+            yield return new WaitForSecondsRealtime(GameDataManager.Instance.GetConfig().cameraRotationDuration - GameDataManager.Instance.GetConfig().startDelayMin);
+            GameEventsManager.OnPlatformAssemble.Invoke();
+        }
     }
 
     private void ConstructSupport(int width, int height, int layers)
@@ -241,11 +249,10 @@ public class MapConstructor : MonoBehaviour, IInitializable
         var z = (float) _height / 2;
 
         var offset = GameDataManager.Instance.GetConfig().cameraOffset;
-        var rotation = GameDataManager.Instance.GetConfig().cameraRotation;
         
         mainCamera.transform.rotation = Quaternion.Euler(Vector3.zero);
-        
         mainCamera.transform.position = new Vector3(x + offset.x, yOffset, z + offset.z);
-        mainCamera.transform.DORotateQuaternion(Quaternion.Euler(rotation), GameDataManager.Instance.GetConfig().cameraRotationDuration);
+        
+        GameEventsManager.OnCameraCentered.Invoke();
     }
 }

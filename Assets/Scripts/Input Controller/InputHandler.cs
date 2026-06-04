@@ -49,18 +49,23 @@ public class InputHandler : MonoBehaviour
         Debug.Log("Undo action");
         GameEventsManager.OnUndoRequested.Invoke();
         GameEventsManager.OnUndoTutorial.Invoke(TutorialState.Undo);
+        GameEventsManager.OnUIButtonClicked.Invoke();
     }
 
     public void RequestRestart()
     {
         Debug.Log("Restart level");
         GameEventsManager.OnRestartRequested.Invoke();
+        GameEventsManager.OnUIButtonClicked.Invoke();
     }
 
     public void RequestPause()
     {
         Debug.Log("Pause Game");
-        //TODO: Pause game 
+        GameEventsManager.OnUIButtonClicked.Invoke();
+        
+        if (!GameManager.Instance.IsPaused()) GameEventsManager.OnPauseRequested.Invoke();
+        else GameEventsManager.OnResumeRequested.Invoke();
     }
 
     public string GetCurrentControlScheme()

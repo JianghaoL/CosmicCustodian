@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour, IInitializable
 {
     public static TutorialManager Instance;
     [SerializeField] private List<TutorialSO> tutorials;
+
+    [Header("Button Highlights")] 
+    [SerializeField] private Image[] moveButtonSlots;
+    [SerializeField] private Image undoButtonSlot;
     
     private HashSet<int> _showedTutorials;
-    private int order;
+    private int _order;
     private TutorialSO _tutorialOnDisplay;
     
     public void InitializeOnAwake()
@@ -24,7 +29,7 @@ public class TutorialManager : MonoBehaviour, IInitializable
         
         SortEntries();
         _showedTutorials = new HashSet<int>();
-        order = 0;
+        _order = 0;
         
         GameEventsManager.OnMapConstructed.AddListener(() =>
         {
@@ -67,15 +72,18 @@ public class TutorialManager : MonoBehaviour, IInitializable
         }
 
         if (i == -1) return;
-        if (i != order) return;
+        if (i != _order) return;
         
-        order = i;
+        _order = i;
         
-        if (!_showedTutorials.Add(order)) return; // if the requested tutorial is already shown, skip it.
+        if (!_showedTutorials.Add(_order)) return; // if the requested tutorial is already shown, skip it.
         
         if (_tutorialOnDisplay != null) _tutorialOnDisplay.EndSpecialEffect();
+        if (_tutorialOnDisplay != null) _tutorialOnDisplay.EndHighLight();
         
-        var tutorial = tutorials[order];
+        GameEventsManager.OnShowTutorial.Invoke();
+        
+        var tutorial = tutorials[_order];
         var text = PlatformManager.Instance.GetPlatform() == PlatformManager.Platform.Mobile ? tutorial.mobileTutorialText : tutorial.desktopTutorialText;
         UIManager.Instance.SetPromptText(text);
 
@@ -84,8 +92,22 @@ public class TutorialManager : MonoBehaviour, IInitializable
             tutorial.StartSpecialEffect();
             _tutorialOnDisplay = tutorial;
         }
+
+        if (tutorial.HasHighLight())
+        {
+            switch (s)
+            {
+                case TutorialState.MapConstructed:
+                    tutorial.StartHighLight(moveButtonSlots);
+                    break;
+                case TutorialState.GameLose:
+                    tutorial.StartHighLight(undoButtonSlot);
+                    break;
+            }
+            _tutorialOnDisplay = tutorial;
+        }
         
-        order ++;
+        _order ++;
     }
     
     private void SortEntries()
